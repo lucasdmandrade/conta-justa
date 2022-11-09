@@ -3,8 +3,8 @@ import { defaultFontFamily } from "../../theme/text";
 import { smokeGray } from "../../theme/colors";
 
 export const OverContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   background-color: ${smokeGray};
@@ -22,4 +22,5 @@ export const Container = styled.div`
   font-family: ${defaultFontFamily};
   font-weight: lighter;
   padding-top: "50px";
+  padding-bottom: "50px";
 `;

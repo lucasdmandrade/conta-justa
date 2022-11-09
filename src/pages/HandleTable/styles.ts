@@ -22,16 +22,16 @@ export const SubTitle = styled.h3`
     "Arial", sans-serif; ;
 `;
 
-export const ClientInputContainer = styled.div`
+export const ClientInputContainer = styled.div<{ isList?: boolean }>`
   width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  margin-top: ${({ isList }) => (isList ? "20px" : "35px")};
 `;
 
-export const ClientInput = styled.input`
-  margin-top: 15px;
+export const ClientInput = styled.input<{ isList?: boolean }>`
   width: 350px;
   height: 30px;
   max-width: 90%;
@@ -39,7 +39,7 @@ export const ClientInput = styled.input`
   border-color: ${solidBlack};
   text-align: center;
   font-size: 1.1em;
-  margin: 25px;
+  opacity: ${({ isList }) => (isList ? 0.7 : 1)};
 `;
 
 export const ClientButtonIcon = styled.img`

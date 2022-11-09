@@ -10,7 +10,7 @@ const AppRoutes = () => {
   const populateTables = () => {
     let handleTables = [];
     for (var i = 0; i <= 10; i++) {
-      handleTables.push({ totalValue: 0 });
+      handleTables.push({ totalValue: 0, clients: [] });
     }
     setTables(handleTables);
   };
@@ -24,7 +24,10 @@ const AppRoutes = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SelectTable tables={tables} />} />
-          <Route path="/monta-mesa" element={<HandleTable />} />
+          <Route
+            path="/monta-mesa"
+            element={<HandleTable tables={tables} setTables={setTables} />}
+          />
         </Routes>
       </BrowserRouter>
     </>

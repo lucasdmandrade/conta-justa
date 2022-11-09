@@ -3,11 +3,17 @@ import { Button } from "./styles";
 const MainButton = ({
   children,
   width,
+  onClick,
 }: {
   children: React.ReactNode;
   width?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }) => {
-  return <Button width={width}>{children}</Button>;
+  return (
+    <Button onClick={onClick} width={width}>
+      {children}
+    </Button>
+  );
 };
 
 export default MainButton;
