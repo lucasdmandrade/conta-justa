@@ -5,13 +5,16 @@ import {
   LogoTitle,
 } from "./styles";
 import ArrowBack from "../../assets/icons/arrowBack.svg";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ PreviousPage }: { PreviousPage: string }) => {
   return (
     <Container>
       <LogoTitle>Retaurante Preço Justo</LogoTitle>
       <ArrowBackImageContainer>
-        <ArrowBackImage src={ArrowBack} alt="Icone de voltar" />
+        <Link to={PreviousPage}>
+          <ArrowBackImage src={ArrowBack} alt="Icone de voltar" />
+        </Link>
       </ArrowBackImageContainer>
     </Container>
   );

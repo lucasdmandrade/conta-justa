@@ -1,7 +1,13 @@
 import { Button } from "./styles";
 
-const MainButton = ({ children }: { children: React.ReactNode }) => {
-  return <Button>{children}</Button>;
+const MainButton = ({
+  children,
+  width,
+}: {
+  children: React.ReactNode;
+  width?: string;
+}) => {
+  return <Button width={width}>{children}</Button>;
 };
 
 export default MainButton;
