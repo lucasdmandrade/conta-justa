@@ -10,7 +10,7 @@ export const LogoTitle = styled.h1`
 
 export const Title = styled.h2`
   margin-top: 30px;
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif; ;
 `;

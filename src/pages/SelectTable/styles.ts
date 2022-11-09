@@ -32,12 +32,3 @@ export const TableOption = styled.option``;
 export const TableImage = styled.img`
   height: 250px;
 `;
-
-export const Footer = styled.footer`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 15px;
-`;

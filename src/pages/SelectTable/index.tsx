@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import MainButton from "../../components/MainButton";
 import MainContainer from "../../components/MainContainer";
 import Table from "../../assets/images/table.svg";
 import {
-  Footer,
   LogoTitle,
   TableImage,
   TableOption,
@@ -12,7 +10,7 @@ import {
 } from "./styles";
 
 import { ITable } from "../../types/Tables";
-import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const SelectTable = ({ tables }: { tables: ITable[] }) => {
   const [sessionTable, setSessionTable] = useState("");
@@ -34,11 +32,7 @@ const SelectTable = ({ tables }: { tables: ITable[] }) => {
 
       <TableImage src={Table} alt="Imagem de mesa de restaurante" />
 
-      <Footer>
-        <Link to="/monta-mesa">
-          <MainButton>Próximo</MainButton>
-        </Link>
-      </Footer>
+      <Footer NextPage="/monta-mesa" />
     </MainContainer>
   );
 };

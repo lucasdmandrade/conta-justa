@@ -11,10 +11,10 @@ import {
 } from "./styles";
 import TrashIcon from "../../assets/icons/trashIcon.svg";
 import PlusIcon from "../../assets/icons/plus.svg";
-import { IClient, ITable } from "../../types/Tables";
+import { ITable } from "../../types/Tables";
 import { getSesstionTable } from "../../utils/getSessionTable";
-import { tab } from "@testing-library/user-event/dist/tab";
-import { table } from "console";
+import DangerButton from "../../components/DangerButton";
+import Footer from "../../components/Footer";
 
 const HandleTable = ({
   tables,
@@ -24,6 +24,12 @@ const HandleTable = ({
   setTables: React.Dispatch<React.SetStateAction<ITable[]>>;
 }) => {
   const [newClient, setNewClient] = useState("");
+  const [sessionTable, setSessionTable] = useState<ITable>();
+  const [controlRender, setControlRender] = useState(true);
+
+  const forceRender = () => {
+    setControlRender(!controlRender);
+  };
 
   const addNewClient = () => {
     if (!newClient) {
@@ -37,48 +43,56 @@ const HandleTable = ({
     });
     setTables(handleTables);
     setNewClient("");
+    forceRender();
+  };
+
+  const removeClient = (clientIndex: number) => {
+    let handleTables = tables;
+    handleTables[getSesstionTable()].clients?.splice(clientIndex, 1);
+    setTables(handleTables);
+    setControlRender(!controlRender);
+    forceRender();
   };
 
   const listTableClients = () => {
-    return tables[getSesstionTable()].clients?.map((client, key) => (
-      <ClientInputContainer isList>
+    return sessionTable?.clients?.map((client, key) => (
+      <ClientInputContainer isList key={key}>
         <ClientInput isList key={key} readOnly value={client.name} />
-        <MainButton width="75px">
+        <DangerButton onClick={() => removeClient(key)} width="75px">
           <ClientButtonIcon src={TrashIcon} alt="Icone de lixo" />
-        </MainButton>
+        </DangerButton>
       </ClientInputContainer>
     ));
   };
 
   useEffect(() => {
+    setSessionTable(tables[getSesstionTable()]);
+    console.log("teste");
+  }, [controlRender]);
+
+  useEffect(() => {
     console.log(tables);
   }, [tables]);
 
-  useEffect(() => {
-    console.log(newClient);
-  }, [newClient]);
-
   return (
     <MainContainer>
-      <>
-        <Header PreviousPage="/" />
-        <Title>
-          Monte a mesa {window.sessionStorage.getItem("sessionTable")}
-        </Title>
-        <SubTitle>Adicione cada cliente da mesa</SubTitle>
+      <Header PreviousPage="/" />
+      <Title>Monte a mesa {getSesstionTable()}</Title>
+      <SubTitle>Adicione cada cliente da mesa</SubTitle>
 
-        {listTableClients()}
-        <ClientInputContainer>
-          <ClientInput
-            placeholder="Nome"
-            onChange={(e) => setNewClient(e.target.value)}
-            value={newClient}
-          />
-          <MainButton onClick={addNewClient} width="75px">
-            <ClientButtonIcon src={PlusIcon} alt="Icone de soma" />
-          </MainButton>
-        </ClientInputContainer>
-      </>
+      {listTableClients()}
+      <ClientInputContainer>
+        <ClientInput
+          placeholder="Nome"
+          onChange={(e) => setNewClient(e.target.value)}
+          value={newClient}
+        />
+        <MainButton onClick={addNewClient} width="75px">
+          <ClientButtonIcon src={PlusIcon} alt="Icone de soma" />
+        </MainButton>
+      </ClientInputContainer>
+
+      <Footer NextPage="/menu" />
     </MainContainer>
   );
 };
