@@ -35,7 +35,7 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 150px;
+  width: 160px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 `;
@@ -43,6 +43,7 @@ export const ProductImage = styled.img`
 export const ProductTitle = styled.h1`
   margin-top: 15px;
   font-size: 1.3em;
+  text-align: center;
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif; ;
 `;

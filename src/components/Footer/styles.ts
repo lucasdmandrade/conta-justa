@@ -6,5 +6,10 @@ export const FooterContainer = styled.footer`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 15px;
+  margin-bottom: 15px;
+
+  a {
+    display: flex;
+    justify-content: center;
+  }
 `;
