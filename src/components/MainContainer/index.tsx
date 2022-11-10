@@ -1,9 +1,15 @@
 import { Container, OverContainer } from "./styles";
 
-const MainContainer = ({ children }: { children: React.ReactNode }) => {
+const MainContainer = ({
+  children,
+  isOpaque,
+}: {
+  children: React.ReactNode;
+  isOpaque?: boolean;
+}) => {
   return (
     <OverContainer>
-      <Container>{children}</Container>
+      <Container isOpaque={isOpaque}>{children}</Container>
     </OverContainer>
   );
 };

@@ -11,5 +11,6 @@ export const FooterContainer = styled.footer`
   a {
     display: flex;
     justify-content: center;
+    text-decoration: none;
   }
 `;

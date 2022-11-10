@@ -23,7 +23,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const ProductCard = styled.div`
-  height: 250px;
+  height: 280px;
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,14 @@ export const ProductImage = styled.img`
 export const ProductTitle = styled.h1`
   margin-top: 15px;
   font-size: 1.3em;
+  text-align: center;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif; ;
+`;
+
+export const ProductPrice = styled.h2`
+  margin-top: 10px;
+  font-size: 1.2em;
   text-align: center;
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif; ;

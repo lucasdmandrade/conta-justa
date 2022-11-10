@@ -10,8 +10,9 @@ export const OverContainer = styled.div`
   background-color: ${smokeGray};
 `;
 
-export const Container = styled.div`
-  background-color: white;
+export const Container = styled.div<{ isOpaque?: boolean }>`
+  background-color: ${({ isOpaque }) =>
+    isOpaque ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 1)"};
   box-shadow: 0px 0px 10px;
   max-width: 650px;
   width: 100%;
