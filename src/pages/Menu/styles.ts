@@ -13,3 +13,44 @@ export const SubTitle = styled.h3`
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif; ;
 `;
+
+export const ProductContainer = styled.div`
+  max-width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`;
+
+export const ProductCard = styled.div`
+  height: 250px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 25px;
+  padding: 10px;
+`;
+
+export const ProductImage = styled.img`
+  width: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+`;
+
+export const ProductTitle = styled.h1`
+  margin-top: 15px;
+  font-size: 1.3em;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif; ;
+`;
+
+export const ProductCardFooter = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
