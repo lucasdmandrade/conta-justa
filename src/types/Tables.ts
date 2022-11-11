@@ -5,5 +5,5 @@ export interface IClient {
 
 export interface ITable {
   totalValue: number;
-  clients?: IClient[];
+  clients: IClient[];
 }

@@ -37,7 +37,7 @@ const HandleTable = ({
     }
 
     let handleTables = tables;
-    handleTables[getSesstionTable()].clients?.push({
+    handleTables[getSesstionTable()].clients.push({
       name: newClient,
       personalValue: 0,
     });

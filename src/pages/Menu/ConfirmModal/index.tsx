@@ -22,6 +22,8 @@ const ConfirmModal = ({
   hide,
   tables,
   setTables,
+  selectClient,
+  callback,
 }: {
   product: string;
   productPrice: number;
@@ -29,6 +31,8 @@ const ConfirmModal = ({
   hide: () => void;
   tables: ITable[];
   setTables: React.Dispatch<React.SetStateAction<ITable[]>>;
+  selectClient: () => void;
+  callback: (alertTitle: string, alertDetails: string) => void;
 }) => {
   const [isActiveAnimation, setIsActiveAnimation] = useState(false);
 
@@ -36,6 +40,16 @@ const ConfirmModal = ({
     let handleTables = tables;
     handleTables[getSesstionTable()].totalValue += productPrice;
     setTables(handleTables);
+    callback(
+      `Pedido efetuado em nome da mesa ${getSesstionTable()} com sucesso`,
+      `Item: ${product}`
+    );
+    hide();
+  };
+
+  const showSelectClientModal = () => {
+    selectClient();
+    hide();
   };
 
   useEffect(() => {
@@ -63,7 +77,9 @@ const ConfirmModal = ({
               <MainButton onClick={() => addTableProduc()} margin="10px">
                 Adicinar pedido a mesa
               </MainButton>
-              <MainButton margin="10px">Adicinar pedido ao cliente</MainButton>
+              <MainButton onClick={() => showSelectClientModal()} margin="10px">
+                Adicinar pedido ao cliente
+              </MainButton>
             </ButtonsContainer>
           </Modal>
         </OverviewModal>

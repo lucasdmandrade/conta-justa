@@ -14,11 +14,12 @@ import {
 import { ITable } from "../../types/Tables";
 import Footer from "../../components/Footer";
 import { getSesstionTable } from "../../utils/getSessionTable";
-import OrangeDrink from "../../assets/images/productImages/orangeDrink.jpg";
 import MainButton from "../../components/MainButton";
 import { products } from "./productsPopulate";
 import ConfirmModal from "./ConfirmModal";
 import { currencyBRL } from "../../utils/currencyMask";
+import AlertModal from "../../components/AlertModal";
+import SelectClientModal from "../../components/SelectClientModal";
 
 const Menu = ({
   tables,
@@ -29,10 +30,25 @@ const Menu = ({
 }) => {
   const [selectedProduct, setselectedPoduct] = useState("");
   const [selectedProductPrice, setselectedPoductPrice] = useState(0);
-  const [isConfirmModalVisible, setIsCOnfirmModalVisible] = useState(false);
+  const [isConfirmModalVisible, setIsConfirmModalVisible] = useState(false);
+  const [isSelectClientmModalVisible, setIsSelectClientmModalVisible] =
+    useState(false);
+  const [isVisibleAlertModal, setIsVisibleAlertModal] = useState(false);
+  const [visibleAlertModalTitle, setVisibleAlertModalTitle] = useState("");
+  const [visibleAlertModalDetails, setVisibleAlertModalDetails] = useState("");
+
+  const callAlertModal = (alertTitle: string, alertDetails: string) => {
+    setVisibleAlertModalTitle(alertTitle);
+    setVisibleAlertModalDetails(alertDetails);
+    setIsVisibleAlertModal(true);
+  };
+
+  useEffect(() => {
+    console.log(isVisibleAlertModal);
+  }, [isVisibleAlertModal]);
 
   const handleShowConfirmModal = () => {
-    setIsCOnfirmModalVisible(!isConfirmModalVisible);
+    setIsConfirmModalVisible(!isConfirmModalVisible);
   };
 
   const confirmPurchase = (productName: string, productPrice: number) => {
@@ -72,6 +88,25 @@ const Menu = ({
         productPrice={selectedProductPrice}
         tables={tables}
         setTables={setTables}
+        selectClient={() => setIsSelectClientmModalVisible(true)}
+        callback={() => setIsVisibleAlertModal(true)}
+      />
+
+      <SelectClientModal
+        isVisible={isSelectClientmModalVisible}
+        hide={() => setIsSelectClientmModalVisible(false)}
+        product={selectedProduct}
+        productPrice={selectedProductPrice}
+        tables={tables}
+        setTables={setTables}
+        callback={callAlertModal}
+      />
+
+      <AlertModal
+        alert={visibleAlertModalTitle}
+        details={visibleAlertModalDetails}
+        hide={() => setIsVisibleAlertModal(false)}
+        isVisible={isVisibleAlertModal}
       />
     </MainContainer>
   );
