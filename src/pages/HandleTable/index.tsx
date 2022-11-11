@@ -67,7 +67,6 @@ const HandleTable = ({
 
   useEffect(() => {
     setSessionTable(tables[getSesstionTable()]);
-    console.log("teste");
   }, [controlRender]);
 
   useEffect(() => {

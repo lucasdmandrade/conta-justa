@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import HandleTable from "../pages/HandleTable";
 import Menu from "../pages/Menu";
 import SelectTable from "../pages/SelectTable";
+import TableExtract from "../pages/TableExtract";
 import { ITable } from "../types/Tables";
 
 const AppRoutes = () => {
@@ -32,6 +33,10 @@ const AppRoutes = () => {
           <Route
             path="/menu"
             element={<Menu tables={tables} setTables={setTables} />}
+          />
+          <Route
+            path="/extrato"
+            element={<TableExtract tables={tables} setTables={setTables} />}
           />
         </Routes>
       </BrowserRouter>

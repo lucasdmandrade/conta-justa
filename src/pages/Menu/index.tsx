@@ -80,7 +80,7 @@ const Menu = ({
         ))}
       </ProductContainer>
 
-      <Footer NextPage="/monta-mesa" />
+      <Footer NextPage="/extrato" />
       <ConfirmModal
         hide={() => handleShowConfirmModal()}
         isVisible={isConfirmModalVisible}
@@ -89,7 +89,7 @@ const Menu = ({
         tables={tables}
         setTables={setTables}
         selectClient={() => setIsSelectClientmModalVisible(true)}
-        callback={() => setIsVisibleAlertModal(true)}
+        callback={callAlertModal}
       />
 
       <SelectClientModal
