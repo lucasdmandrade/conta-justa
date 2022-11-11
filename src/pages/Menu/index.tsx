@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header";
 import MainContainer from "../../components/MainContainer";
 import {
@@ -28,14 +28,16 @@ const Menu = ({
   setTables: React.Dispatch<React.SetStateAction<ITable[]>>;
 }) => {
   const [selectedProduct, setselectedPoduct] = useState("");
+  const [selectedProductPrice, setselectedPoductPrice] = useState(0);
   const [isConfirmModalVisible, setIsCOnfirmModalVisible] = useState(false);
 
   const handleShowConfirmModal = () => {
     setIsCOnfirmModalVisible(!isConfirmModalVisible);
   };
 
-  const confirmPurchase = (productName: string) => {
+  const confirmPurchase = (productName: string, productPrice: number) => {
     setselectedPoduct(productName);
+    setselectedPoductPrice(productPrice);
     handleShowConfirmModal();
   };
 
@@ -52,7 +54,9 @@ const Menu = ({
             <ProductTitle>{product.title}</ProductTitle>
             <ProductPrice>{currencyBRL(product.price)}</ProductPrice>
             <ProductCardFooter>
-              <MainButton onClick={() => confirmPurchase(product.title)}>
+              <MainButton
+                onClick={() => confirmPurchase(product.title, product.price)}
+              >
                 Pedir
               </MainButton>
             </ProductCardFooter>
@@ -62,8 +66,12 @@ const Menu = ({
 
       <Footer NextPage="/monta-mesa" />
       <ConfirmModal
+        hide={() => handleShowConfirmModal()}
         isVisible={isConfirmModalVisible}
         product={selectedProduct}
+        productPrice={selectedProductPrice}
+        tables={tables}
+        setTables={setTables}
       />
     </MainContainer>
   );
