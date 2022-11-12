@@ -37,6 +37,7 @@ export const ClientInput = styled.input<{ isList?: boolean }>`
   max-width: 90%;
   border-radius: 15px;
   border-color: ${solidBlack};
+  margin-right: 15px;
   text-align: center;
   font-size: 1.1em;
   opacity: ${({ isList }) => (isList ? 0.7 : 1)};
