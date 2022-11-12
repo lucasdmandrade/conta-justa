@@ -40,24 +40,33 @@ const TableExtract = ({
 
   const populateClientPaidOutArray = () => {
     let handleIsClientValuePaid: boolean[] = [];
-    tables[getSesstionTable()].clients.forEach(() => {
-      handleIsClientValuePaid.push(false);
+    tables[getSesstionTable()].clients.map((client, index) => {
+      handleIsClientValuePaid.push(
+        tables[getSesstionTable()].clients[index].personalValue === 0
+      );
     });
-    setIsClientValuePaid(handleIsClientValuePaid);
+    setIsClientValuePaid([...handleIsClientValuePaid]);
   };
 
   const handleClientPaid = (clientIndex: number) => {
-    console.log(clientIndex);
     let handleIsClientValuePaid: boolean[] = isClientValuePaid;
 
     handleIsClientValuePaid[clientIndex] = true;
-    setIsClientValuePaid(handleIsClientValuePaid);
-    console.log(handleIsClientValuePaid);
+    setIsClientValuePaid([...handleIsClientValuePaid]);
   };
 
-  useEffect(() => {
-    console.log(isClientValuePaid);
-  }, [isClientValuePaid]);
+  const disableFooterButton = () => {
+    if (tables[getSesstionTable()].totalValue > 0) {
+      console.log("primeiro caso");
+      if (!isClientValuePaid.length) {
+        return !isTotalTableValuePaid;
+      }
+    }
+    console.log(isClientValuePaid.some((isPaid) => isPaid));
+    return isClientValuePaid.some(
+      (isPaid) => !(isPaid && isTotalTableValuePaid)
+    );
+  };
 
   useEffect(() => {
     populateClientPaidOutArray();
@@ -68,12 +77,20 @@ const TableExtract = ({
       <Header PreviousPage={"/menu"} />
       <Title>Extrato</Title>
       <ExtractContent>
-        <TotalTableExtract isPaid={isTotalTableValuePaid}>
+        <TotalTableExtract
+          isPaid={
+            isTotalTableValuePaid || tables[getSesstionTable()].totalValue === 0
+          }
+        >
           <TotalValue>
             Valor da mesa: {currencyBRL(tables[getSesstionTable()].totalValue)}
           </TotalValue>
           <TotalValueDivisorSelecter
             onChange={(e) => setDividedTotalValue(Number(e.target.value))}
+            disabled={
+              isTotalTableValuePaid ||
+              tables[getSesstionTable()].totalValue === 0
+            }
           >
             {returnTotalValueDivisorOptions()}
           </TotalValueDivisorSelecter>
@@ -90,12 +107,19 @@ const TableExtract = ({
             <TotalTableExtractInput
               onChange={(e) => setIsTotalTableValuePaid(true)}
               type={"radio"}
+              checked={
+                isTotalTableValuePaid ||
+                tables[getSesstionTable()].totalValue === 0
+              }
             />
           </TotalTablePaymentContainer>
         </TotalTableExtract>
 
         {tables[getSesstionTable()].clients.map((client, key) => (
-          <ClientExtract key={key} isPaid={!!isClientValuePaid[key]}>
+          <ClientExtract
+            key={key}
+            isPaid={isClientValuePaid[key] || client.personalValue === 0}
+          >
             <TotalValue>
               Valor do {client.name}: {currencyBRL(client.personalValue)}
             </TotalValue>
@@ -105,15 +129,16 @@ const TableExtract = ({
             <TotalTablePaymentContainer>
               <TotalTableExtractLabel>Pago</TotalTableExtractLabel>
               <TotalTableExtractInput
-                onChange={() => handleClientPaid(key)}
+                onChange={({ target }) => handleClientPaid(key)}
                 type={"radio"}
+                checked={isClientValuePaid[key]}
               />
             </TotalTablePaymentContainer>
           </ClientExtract>
         ))}
       </ExtractContent>
 
-      <Footer NextPage="/monta-mesa" />
+      <Footer disabled={disableFooterButton()} NextPage="/monta-mesa" />
     </MainContainer>
   );
 };

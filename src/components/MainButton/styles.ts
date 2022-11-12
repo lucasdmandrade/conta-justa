@@ -13,6 +13,9 @@ export const Button = styled.button<{ width?: string; margin?: string }>`
   font-size: 1.1em;
   color: white;
   transition: 0.3s;
+  &:disabled {
+    opacity: 0.5;
+  }
 
   &:hover {
     background-color: ${solidDarkBlue};
