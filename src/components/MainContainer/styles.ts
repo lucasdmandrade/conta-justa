@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { defaultFontFamily } from "../../theme/text";
 import { smokeGray } from "../../theme/colors";
 
 export const OverContainer = styled.div`
