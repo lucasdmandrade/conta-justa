@@ -67,8 +67,6 @@ export const TittleContainer = styled.div`
 export const Title = styled.h2`
   margin-top: 10px;
   font-size: 1.5em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const ClientSelecter = styled.select`

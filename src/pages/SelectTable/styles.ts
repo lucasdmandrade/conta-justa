@@ -4,15 +4,11 @@ import { solidBlack } from "../../theme/colors";
 export const LogoTitle = styled.h1`
   margin-top: 50px;
   font-size: 1.5em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const Title = styled.h2`
   margin-top: 30px;
   font-size: 1.4em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const TableSelecter = styled.select`

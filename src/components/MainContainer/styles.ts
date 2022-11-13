@@ -20,7 +20,8 @@ export const Container = styled.div<{ isOpaque?: boolean }>`
   flex-direction: column;
   align-items: center;
   margin: 0;
-  font-family: ${defaultFontFamily};
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   font-weight: lighter;
   padding-top: 20px;
   padding-bottom: 50px;

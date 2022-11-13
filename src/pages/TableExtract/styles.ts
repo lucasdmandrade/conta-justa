@@ -4,8 +4,6 @@ import { darkGrey, smokeGray, solidBlack } from "../../theme/colors";
 export const Title = styled.h1`
   margin-top: 50px;
   font-size: 1.5em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const ExtractContent = styled.div`
@@ -30,8 +28,6 @@ export const TotalTableExtract = styled.div<{ isPaid: boolean }>`
 export const TotalValue = styled.h2`
   margin-top: 10px;
   font-size: 1.3em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
 `;
 
 export const TotalValueDivisorSelecter = styled.select`
@@ -53,8 +49,7 @@ export const TotalValueDivisorLabel = styled.label`
   height: 30px;
   border-radius: 15px;
   font-size: 1.1em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+
   margin: 25px 0 0;
 `;
 
@@ -69,8 +64,6 @@ export const TotalTableExtractInput = styled.input`
 
 export const TotalTableExtractLabel = styled.label`
   font-size: 1.2em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const ClientExtract = styled.div<{ isPaid: boolean }>`

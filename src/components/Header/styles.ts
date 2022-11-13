@@ -12,8 +12,6 @@ export const Container = styled.header`
 export const LogoTitle = styled.h1`
   padding: 10px;
   font-size: 1.5em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif; ;
 `;
 
 export const ArrowBackImageContainer = styled.div`
