@@ -16,7 +16,6 @@ const SelectTable = ({ tables }: { tables: ITable[] }) => {
   const [sessionTable, setSessionTable] = useState("");
 
   useEffect(() => {
-    console.log(sessionTable);
     window.sessionStorage.setItem("sessionTable", sessionTable);
   }, [sessionTable]);
 

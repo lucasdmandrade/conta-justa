@@ -41,7 +41,7 @@ const ConfirmModal = ({
     handleTables[getSesstionTable()].totalValue += productPrice;
     setTables(handleTables);
     callback(
-      `Pedido efetuado em nome da mesa ${getSesstionTable()} com sucesso`,
+      `Pedido feito em nome da mesa ${getSesstionTable()} com sucesso`,
       `Item: ${product}`
     );
     hide();

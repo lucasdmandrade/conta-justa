@@ -27,7 +27,9 @@ const TableExtract = ({
   setTables: React.Dispatch<React.SetStateAction<ITable[]>>;
 }) => {
   const [dividedTotalValue, setDividedTotalValue] = useState(1);
-  const [isTotalTableValuePaid, setIsTotalTableValuePaid] = useState(false);
+  const [isTotalTableValuePaid, setIsTotalTableValuePaid] = useState(
+    tables[getSesstionTable()].totalValue === 0
+  );
   const [isClientValuePaid, setIsClientValuePaid] = useState<boolean[]>([]);
 
   const returnTotalValueDivisorOptions = () => {
@@ -39,6 +41,9 @@ const TableExtract = ({
   };
 
   const populateClientPaidOutArray = () => {
+    if (!tables[getSesstionTable()].clients.length) {
+      return;
+    }
     let handleIsClientValuePaid: boolean[] = [];
     tables[getSesstionTable()].clients.map((client, index) => {
       handleIsClientValuePaid.push(
@@ -55,17 +60,19 @@ const TableExtract = ({
     setIsClientValuePaid([...handleIsClientValuePaid]);
   };
 
+  const isAllTableClientsPaid = () => {
+    return isClientValuePaid.every((isPaid) => isPaid);
+  };
+
   const disableFooterButton = () => {
     if (tables[getSesstionTable()].totalValue > 0) {
-      console.log("primeiro caso");
       if (!isClientValuePaid.length) {
-        return !isTotalTableValuePaid;
+        return (
+          !isTotalTableValuePaid || tables[getSesstionTable()].totalValue > 0
+        );
       }
     }
-    console.log(isClientValuePaid.some((isPaid) => isPaid));
-    return isClientValuePaid.some(
-      (isPaid) => !(isPaid && isTotalTableValuePaid)
-    );
+    return !(isAllTableClientsPaid() && isTotalTableValuePaid);
   };
 
   useEffect(() => {
@@ -138,7 +145,7 @@ const TableExtract = ({
         ))}
       </ExtractContent>
 
-      <Footer disabled={disableFooterButton()} NextPage="/monta-mesa" />
+      <Footer disabled={disableFooterButton()} NextPage="/" />
     </MainContainer>
   );
 };

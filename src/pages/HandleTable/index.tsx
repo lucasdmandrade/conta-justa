@@ -69,10 +69,6 @@ const HandleTable = ({
     setSessionTable(tables[getSesstionTable()]);
   }, [controlRender]);
 
-  useEffect(() => {
-    console.log(tables);
-  }, [tables]);
-
   return (
     <MainContainer>
       <Header PreviousPage="/" />

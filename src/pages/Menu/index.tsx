@@ -43,10 +43,6 @@ const Menu = ({
     setIsVisibleAlertModal(true);
   };
 
-  useEffect(() => {
-    console.log(isVisibleAlertModal);
-  }, [isVisibleAlertModal]);
-
   const handleShowConfirmModal = () => {
     setIsConfirmModalVisible(!isConfirmModalVisible);
   };
