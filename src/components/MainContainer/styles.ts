@@ -22,6 +22,6 @@ export const Container = styled.div<{ isOpaque?: boolean }>`
   margin: 0;
   font-family: ${defaultFontFamily};
   font-weight: lighter;
-  padding-top: "50px";
-  padding-bottom: "50px";
+  padding-top: 20px;
+  padding-bottom: 50px;
 `;
