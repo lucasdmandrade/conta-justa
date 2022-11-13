@@ -44,14 +44,12 @@ const SelectClientModal = ({
       productPrice;
 
     setTables(handleTables);
-    console.log(handleTables);
     callback(
       `Pedido efetuado em nome do cliente ${
         handleTables[getSesstionTable()].clients[selectedCLient].name
       } com sucesso`,
       `Item: ${product}`
     );
-    console.log("foi");
     hide();
     setSelectedCLient(0);
   };
