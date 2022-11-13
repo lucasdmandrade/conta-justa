@@ -67,12 +67,17 @@ const TableExtract = ({
   const disableFooterButton = () => {
     if (tables[getSesstionTable()].totalValue > 0) {
       if (!isClientValuePaid.length) {
-        return (
-          !isTotalTableValuePaid || tables[getSesstionTable()].totalValue > 0
-        );
+        return !isTotalTableValuePaid;
       }
     }
     return !(isAllTableClientsPaid() && isTotalTableValuePaid);
+  };
+
+  const cleanTable = () => {
+    let handleTables = tables;
+
+    handleTables[getSesstionTable()] = { totalValue: 0, clients: [] };
+    setTables(handleTables);
   };
 
   useEffect(() => {
@@ -131,8 +136,6 @@ const TableExtract = ({
               Valor do {client.name}: {currencyBRL(client.personalValue)}
             </TotalValue>
 
-            <TotalValue>{key}</TotalValue>
-
             <TotalTablePaymentContainer>
               <TotalTableExtractLabel>Pago</TotalTableExtractLabel>
               <TotalTableExtractInput
@@ -145,7 +148,11 @@ const TableExtract = ({
         ))}
       </ExtractContent>
 
-      <Footer disabled={disableFooterButton()} NextPage="/" />
+      <Footer
+        disabled={disableFooterButton()}
+        NextPage="/"
+        secondAction={cleanTable}
+      />
     </MainContainer>
   );
 };
