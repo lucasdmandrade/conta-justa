@@ -10,6 +10,7 @@ import {
   TotalTableExtractLabel,
   TotalTablePaymentContainer,
   TotalValue,
+  TotalValueDivisorLabel,
   TotalValueDivisorSelecter,
 } from "./styles";
 
@@ -97,6 +98,8 @@ const TableExtract = ({
           <TotalValue>
             Valor da mesa: {currencyBRL(tables[getSesstionTable()].totalValue)}
           </TotalValue>
+
+          <TotalValueDivisorLabel>Quantidade de pessoas</TotalValueDivisorLabel>
           <TotalValueDivisorSelecter
             onChange={(e) => setDividedTotalValue(Number(e.target.value))}
             disabled={

@@ -43,10 +43,20 @@ export const TotalValueDivisorSelecter = styled.select`
   border-color: ${solidBlack};
   text-align: center;
   font-size: 1.1em;
-  margin: 25px;
+  margin: 5px 25px 25px;
 `;
 
 export const DivisionOption = styled.option``;
+
+export const TotalValueDivisorLabel = styled.label`
+  margin-top: 15px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 1.1em;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
+  margin: 25px 0 0;
+`;
 
 export const TotalTablePaymentContainer = styled.div`
   margin-top: 10px;
