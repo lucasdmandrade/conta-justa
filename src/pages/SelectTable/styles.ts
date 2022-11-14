@@ -14,13 +14,13 @@ export const Title = styled.h2`
 export const TableSelecter = styled.select`
   margin-top: 15px;
   width: 100px;
-  height: 1.2em;
   max-width: 90%;
   border-radius: 15px;
   border-color: ${solidBlack};
   text-align: center;
   font-size: 1.1em;
   margin: 25px;
+  padding: 5px;
 `;
 
 export const TableOption = styled.option``;
