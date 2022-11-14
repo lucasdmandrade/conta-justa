@@ -25,7 +25,7 @@ const SelectTable = ({ tables }: { tables: ITable[] }) => {
       <Title>Selecionar mesa</Title>
       <TableSelecter onChange={(e) => setSessionTable(e.target.value)}>
         {tables.map((table, key) => (
-          <TableOption>{key}</TableOption>
+          <TableOption key={key}>{key}</TableOption>
         ))}
       </TableSelecter>
 
