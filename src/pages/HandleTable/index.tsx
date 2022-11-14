@@ -83,7 +83,7 @@ const HandleTable = ({
           value={newClient}
         />
         <MainButton onClick={addNewClient} width="75px">
-          <ClientButtonIcon src={PlusIcon} alt="Icone de soma" />
+          <ClientButtonIcon src={PlusIcon} alt="Ícone de soma" />
         </MainButton>
       </ClientInputContainer>
 

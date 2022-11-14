@@ -21,7 +21,7 @@ const SelectTable = ({ tables }: { tables: ITable[] }) => {
 
   return (
     <MainContainer>
-      <LogoTitle>Retaurante Conta Justa</LogoTitle>
+      <LogoTitle>Restaurante Conta Justa</LogoTitle>
       <Title>Selecionar mesa</Title>
       <TableSelecter onChange={(e) => setSessionTable(e.target.value)}>
         {tables.map((table, key) => (

@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 const Header = ({ PreviousPage }: { PreviousPage: string }) => {
   return (
     <Container>
-      <LogoTitle>Retaurante Preço Justo</LogoTitle>
+      <LogoTitle>Restaurante Preço Justo</LogoTitle>
       <ArrowBackImageContainer>
         <Link to={PreviousPage}>
-          <ArrowBackImage src={ArrowBack} alt="Icone de voltar" />
+          <ArrowBackImage src={ArrowBack} alt="Ícone de voltar" />
         </Link>
       </ArrowBackImageContainer>
     </Container>
