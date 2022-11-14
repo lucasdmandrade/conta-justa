@@ -14,7 +14,11 @@ const Footer = ({
   return (
     <FooterContainer>
       <Link to={NextPage}>
-        <MainButton onClick={secondAction} disabled={disabled}>
+        <MainButton
+          removeMaxWidth={true}
+          onClick={secondAction}
+          disabled={disabled}
+        >
           Próximo
         </MainButton>
       </Link>

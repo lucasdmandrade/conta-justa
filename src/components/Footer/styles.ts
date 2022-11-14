@@ -11,6 +11,8 @@ export const FooterContainer = styled.footer`
   a {
     display: flex;
     justify-content: center;
+    max-width: 90%;
+    border-radius: 15px;
     text-decoration: none;
   }
 `;

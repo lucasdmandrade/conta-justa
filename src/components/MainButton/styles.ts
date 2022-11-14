@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { solidBlue, solidDarkBlue } from "../../theme/colors";
 
-export const Button = styled.button<{ width?: string; margin?: string }>`
+export const Button = styled.button<{
+  width?: string;
+  margin?: string;
+  removeMaxWidth?: boolean;
+}>`
   width: ${({ width }) => (width ? width : "250px")};
   height: 30px;
-  max-width: 90%;
+  max-width: ${({ removeMaxWidth }) => (removeMaxWidth ? "100%" : "90%")};
   background-color: ${solidBlue};
   border-radius: 15px;
   border-color: ${solidBlue};
