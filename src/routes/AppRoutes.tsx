@@ -22,25 +22,23 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SelectTable tables={tables} />} />
-          <Route
-            path="/monta-mesa"
-            element={<HandleTable tables={tables} setTables={setTables} />}
-          />
-          <Route
-            path="/menu"
-            element={<Menu tables={tables} setTables={setTables} />}
-          />
-          <Route
-            path="/extrato"
-            element={<TableExtract tables={tables} setTables={setTables} />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SelectTable tables={tables} />} />
+        <Route
+          path="/monta-mesa"
+          element={<HandleTable tables={tables} setTables={setTables} />}
+        />
+        <Route
+          path="/menu"
+          element={<Menu tables={tables} setTables={setTables} />}
+        />
+        <Route
+          path="/extrato"
+          element={<TableExtract tables={tables} setTables={setTables} />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

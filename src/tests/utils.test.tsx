@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from "./App";
-import { currencyBRL } from "./utils/currencyMask";
-import { getSesstionTable } from "./utils/getSessionTable";
-import { amountsToBeFormattedMock } from "./mocks/amountMocks";
+import App from "../App";
+import { currencyBRL } from "../utils/currencyMask";
+import { getSesstionTable } from "../utils/getSessionTable";
+import { amountsToBeFormattedMock } from "../mocks/amountMocks";
 
 describe("Geral tests", () => {
   beforeEach(() => {
