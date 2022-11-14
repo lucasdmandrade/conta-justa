@@ -41,8 +41,7 @@ export const Modalheader = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-top: 10px;
-  font-size: 1.5em;
+  font-size: 1.4em;
 
   margin: 5px;
 `;
@@ -55,9 +54,9 @@ export const Subtitle = styled.h2`
 `;
 
 export const CancelImageContainer = styled.div`
-  padding: 10px;
-  height: 35px;
-  width: 35px;
+  padding: 10px 10px 5px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
 `;
 
