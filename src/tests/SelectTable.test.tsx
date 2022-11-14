@@ -8,7 +8,7 @@ const mockedTalbes: ITable[] = [
   { totalValue: 50, clients: [{ name: "MockedClient1", personalValue: 15 }] },
 ];
 
-describe("Geral tests", () => {
+describe("Select table tests", () => {
   beforeEach(() => {
     window.sessionStorage.clear();
     jest.restoreAllMocks();
@@ -24,7 +24,7 @@ describe("Geral tests", () => {
     expect(title).toBeInTheDocument();
   });
 
-  it("renders Home page", async () => {
+  it("Click footer button", async () => {
     const mockedButtonFuntion = jest.fn();
     render(
       <BrowserRouter>
