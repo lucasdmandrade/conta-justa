@@ -20,7 +20,7 @@ describe("Select table tests", () => {
         <SelectTable tables={mockedTalbes} />
       </BrowserRouter>
     );
-    const title = screen.getByText(/Retaurante Conta Justa/i);
+    const title = screen.getByText(/Restaurante Conta Justa/i);
     expect(title).toBeInTheDocument();
   });
 

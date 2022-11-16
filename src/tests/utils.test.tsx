@@ -13,7 +13,7 @@ describe("Geral tests", () => {
 
   it("renders Home page", () => {
     render(<App />);
-    const title = screen.getByText(/Retaurante Conta Justa/i);
+    const title = screen.getByText(/Restaurante Conta Justa/i);
     expect(title).toBeInTheDocument();
   });
 
