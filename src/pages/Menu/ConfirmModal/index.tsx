@@ -75,14 +75,14 @@ const ConfirmModal = ({
 
             <ButtonsContainer>
               <MainButton onClick={() => addTableProduc()} margin="10px">
-                Adicionar pedido a mesa
+                Adicionar à mesa
               </MainButton>
               {!!tables[getSesstionTable()].clients.length && (
                 <MainButton
                   onClick={() => showSelectClientModal()}
                   margin="10px"
                 >
-                  Adicionar pedido ao cliente
+                  Adicionar ao cliente
                 </MainButton>
               )}
             </ButtonsContainer>

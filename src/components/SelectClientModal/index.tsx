@@ -45,9 +45,9 @@ const SelectClientModal = ({
 
     setTables(handleTables);
     callback(
-      `Pedido efetuado em nome do cliente ${
+      `Pedido efetuado em nome de ${
         handleTables[getSesstionTable()].clients[selectedCLient].name
-      } com sucesso`,
+      }`,
       `Item: ${product}`
     );
     hide();

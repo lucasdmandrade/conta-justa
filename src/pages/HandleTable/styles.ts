@@ -14,6 +14,7 @@ export const Title = styled.h2`
 export const SubTitle = styled.h3`
   margin-top: 5px;
   font-size: 1.3em;
+  text-align: center;
 `;
 
 export const ClientInputContainer = styled.div<{ isList?: boolean }>`
@@ -28,10 +29,11 @@ export const ClientInputContainer = styled.div<{ isList?: boolean }>`
 export const ClientInput = styled.input<{ isList?: boolean }>`
   width: 350px;
   height: 30px;
-  max-width: 90%;
+  max-width: 80%;
   border-radius: 15px;
   border-color: ${solidBlack};
-  margin-right: 15px;
+  margin-right: 10px;
+  margin-left: 5px;
   text-align: center;
   font-size: 1.1em;
   opacity: ${({ isList }) => (isList ? 0.7 : 1)};

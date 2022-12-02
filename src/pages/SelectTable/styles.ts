@@ -4,6 +4,7 @@ import { solidBlack } from "../../theme/colors";
 export const LogoTitle = styled.h1`
   margin-top: 50px;
   font-size: 1.5em;
+  text-align: center;
 `;
 
 export const Title = styled.h2`
